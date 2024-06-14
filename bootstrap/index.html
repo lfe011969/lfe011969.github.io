@@ -446,6 +446,32 @@
 								<button class="prev" onclick="moveSlide(-1)">&#10094;</button>
 								<button class="next" onclick="moveSlide(1)">&#10095;</button>
 							  </div>
+							  
+							  <script>
+								let currentIndex = 0;
+
+								function showSlide(index) {
+								  const slides = document.querySelectorAll('.slide');
+								  if (index >= slides.length) {
+									currentIndex = 0;
+								  } else if (index < 0) {
+									currentIndex = slides.length - 1;
+								  } else {
+									currentIndex = index;
+								  }
+								  const offset = -currentIndex * 100;
+								  document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
+								}
+
+								function moveSlide(step) {
+								  showSlide(currentIndex + step);
+								}
+
+								document.addEventListener('DOMContentLoaded', () => {
+								  showSlide(currentIndex);
+								});
+							  </script>
+							  
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
