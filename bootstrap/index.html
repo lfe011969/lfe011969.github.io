@@ -43,7 +43,55 @@
 			display: block;
 			margin: auto;
 		}
-	
+		
+		.slider {
+		  position: relative;
+		  max-width: 800px;
+		  margin: auto;
+		  overflow: hidden;
+		  border: 2px solid #ddd;
+		  border-radius: 10px;
+		}
+		
+		.slides {
+		  display: flex;
+		  transition: transform 0.5s ease-in-out;
+		}
+
+		.slide {
+		  min-width: 100%;
+		  box-sizing: border-box;
+		}
+
+		.slide img {
+		  width: 100%;
+		  border-radius: 10px;
+		}
+
+		.prev, .next {
+		  cursor: pointer;
+		  position: absolute;
+		  top: 50%;
+		  width: auto;
+		  padding: 16px;
+		  margin-top: -22px;
+		  color: white;
+		  font-weight: bold;
+		  font-size: 18px;
+		  transition: 0.6s ease;
+		  border-radius: 0 3px 3px 0;
+		  user-select: none;
+		  background-color: rgba(0,0,0,0.5);
+		}
+
+		.next {
+		  right: 0;
+		  border-radius: 3px 0 0 3px;
+		}
+
+		.prev:hover, .next:hover {
+		  background-color: rgba(0,0,0,0.8);
+		}
 		
 	</style>
 
@@ -332,9 +380,9 @@
                         <div class="modal-body">
                             <h2>Power Apps</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/DOE1.gif" width="800" class="img-responsive img-centered" alt="">
                             <p>In today's fast-paced business landscape, staying competitive means finding efficient solutions to complex challenges. That's where PowerApps comes in. With its powerful and robust capabilities, I've been able to create custom applications tailored to our unique business needs. These apps have streamlined processes, improved productivity, and enhanced decision-making.</p>
-                            
+							<img src="img/portfolio/DOE1.gif" width="800" class="img-responsive img-centered" alt="">
+                            <div style="font-size: 14px; color: #555; margin-top: 8px;">This app is used to collect data on students who fail a class. The data is uploaded as an item in a SharePoint list which then triggers the creation of an official Word Document containing the data. This document is uploaded to the SharePoint site and also emailed to the instructor and the academic manager.</div>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
@@ -356,8 +404,8 @@
                         <div class="modal-body">
                             <h2>Power Automate</h2>
                             <hr class="star-primary">
+							<p>Power Automate is the linchpin that ties Microsoft's other Power Platform apps together into a powerful digital toolset. I use Power Automate to transfer critical data between systems, automate complicated and time-consuming tasks, and quickly provide important information to the appropriate decision-makers.</p>
                             <img src="img/portfolio/DOE2.gif" width="800" class="img-responsive img-centered" alt="">
-                            <p>Power Automate is the linchpin that ties Microsoft's other Power Platform apps together into a powerful digital toolset. I use Power Automate to transfer critical data between systems, automate complicated and time-consuming tasks, and quickly provide important information to the appropriate decision-makers.</p>
                             <div style="font-size: 14px; color: #555; margin-top: 8px;">This flow is used to automate the creation of the CSV file necessary for enrolling all students into their perspective classes for a given term. I email the schedule (in Excel format) to a specific address with a specific subject which triggers this flow. This process is in two parts: first, the email attachment is saved to OneDrive and a template file in OneDrive is cleared of all data. In the second step, the data is analyzed using complex logic to determine what classes each student needs to be enrolled in, and the template file is populated with the correct data. At the end of the second step, the CSV file is emailed to myself and a copy is stored on OneDrive.</div>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
@@ -378,24 +426,26 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body">
-                            <h2>Project Title</h2>
+                            <h2>Power BI</h2>
                             <hr class="star-primary">
-                            <img src="img/portfolio/circus.png" class="img-responsive img-centered" alt="">
-                            <p>Use this area of the page to describe your project. The icon above is part of a free icon set by <a href="https://sellfy.com/p/8Q9P/jV3VZ/">Flat Icons</a>. On their website, you can download their free set with 16 icons, or you can purchase the entire set with 146 icons for only $12!</p>
-                            <ul class="list-inline item-details">
-                                <li>Client:
-                                    <strong><a href="http://startbootstrap.com">Start Bootstrap</a>
-                                    </strong>
-                                </li>
-                                <li>Date:
-                                    <strong><a href="http://startbootstrap.com">April 2014</a>
-                                    </strong>
-                                </li>
-                                <li>Service:
-                                    <strong><a href="http://startbootstrap.com">Web Development</a>
-                                    </strong>
-                                </li>
-                            </ul>
+                            <p>Today's business landscape is shaped from the analyzation of data from a multitude of sources and Power BI provides all the necessary visualizations to quickly gauge important areas. I use Power BI with PowerApps to provide dashboards containing real-time data as well as long-term trends for the appropriate analysis.</p>
+							<img src="img/portfolio/dashboard.png" class="img-responsive img-centered" alt="">
+                            <div style="font-size: 14px; color: #555; margin-top: 8px;">This dashboard built in PowerApps is used for monitoring current grade data. The data is automatically exported from the LMS and then imported into SharePoint. The data is refreshed once every hour during the workday which updates the graphics in Power BI.</div>
+							<hr>
+							<div class="slider">
+								<div class="slides">
+								  <div class="slide"><img src="img/portfolio/chart1.png" alt="Chart 1"></div>
+								  <div class="slide"><img src="img/portfolio/chart2.png" alt="Chart 2"></div>
+								  <div class="slide"><img src="img/portfolio/chart3.png" alt="Chart 3"></div>
+								  <div class="slide"><img src="img/portfolio/chart4.png" alt="Chart 4"></div>
+								  <div class="slide"><img src="img/portfolio/chart5.png" alt="Chart 5"></div>
+								  <div class="slide"><img src="img/portfolio/chart6.png" alt="Chart 6"></div>
+								  <div class="slide"><img src="img/portfolio/chart7.png" alt="Chart 7"></div>
+								  <div class="slide"><img src="img/portfolio/chart8.png" alt="Chart 8"></div>
+								</div>
+								<button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+								<button class="next" onclick="moveSlide(1)">&#10095;</button>
+							  </div>
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
                         </div>
                     </div>
