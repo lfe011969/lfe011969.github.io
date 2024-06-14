@@ -104,87 +104,7 @@
 		  font-size: 16px;
 		  color: #555;
 		}
-		
-		#myImg {
-		  border-radius: 5px;
-		  cursor: pointer;
-		  transition: 0.3s;
-		}
-
-		#myImg:hover {opacity: 0.7;}
-
-		/* The Modal (background) */
-		.modal {
-		  display: none; /* Hidden by default */
-		  position: fixed; /* Stay in place */
-		  z-index: 1; /* Sit on top */
-		  padding-top: 100px; /* Location of the box */
-		  left: 0;
-		  top: 0;
-		  width: 100%; /* Full width */
-		  height: 100%; /* Full height */
-		  overflow: auto; /* Enable scroll if needed */
-		  background-color: rgb(0,0,0); /* Fallback color */
-		  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-		}
-
-		/* Modal Content (Image) */
-		.modal-content {
-		  margin: auto;
-		  display: block;
-		  width: 80%;
-		  max-width: 700px;
-		}
-
-		/* Caption of Modal Image (Image Text) - Same Width as the Image */
-		#caption {
-		  margin: auto;
-		  display: block;
-		  width: 80%;
-		  max-width: 700px;
-		  text-align: center;
-		  color: #ccc;
-		  padding: 10px 0;
-		  height: 150px;
-		}
-
-		/* Add Animation - Zoom in the Modal */
-		.modal-content, #caption {
-		  animation-name: zoom;
-		  animation-duration: 0.6s;
-		}
-
-		@keyframes zoom {
-		  from {transform:scale(0)}
-		  to {transform:scale(1)}
-		}
-
-		/* The Close Button */
-		.close {
-		  position: absolute;
-		  top: 15px;
-		  right: 35px;
-		  color: #f1f1f1;
-		  font-size: 40px;
-		  font-weight: bold;
-		  transition: 0.3s;
-		}
-
-		.close:hover,
-		.close:focus {
-		  color: #bbb;
-		  text-decoration: none;
-		  cursor: pointer;
-		}
-
-		/* 100% Image Width on Smaller Screens */
-		@media only screen and (max-width: 700px){
-		  .modal-content {
-			width: 100%;
-		  }
-		}
-		
-						
+								
 	</style>
 
 
@@ -521,35 +441,17 @@
                             <h2>Power BI</h2>
                             <hr class="star-primary">
                             <p>Today's business landscape is shaped from the analyzation of data from a multitude of sources and Power BI provides all the necessary visualizations to quickly gauge important areas. I use Power BI with PowerApps to provide dashboards containing real-time data as well as long-term trends for the appropriate analysis.</p>
-							<img id="myImg" src="img/portfolio/dashboard.png" style="width: 200px; cursor: pointer;">
-							<div id="myModal" class="modal">
-								<span class="close">&times;</span>
-								<img class="modal-content" id="img01">
-								<div id="caption"></div>
-							</div>
 							
-							<script>
-								// Get the modal
-								var modal = document.getElementById("myModal");
-
-								// Get the image and insert it inside the modal - use its "alt" text as a caption
-								var img = document.getElementById("myImg");
-								var modalImg = document.getElementById("img01");
-								var captionText = document.getElementById("caption");
-								img.onclick = function(){
-								  modal.style.display = "block";
-								  modalImg.src = this.src;
-								  captionText.innerHTML = this.alt;
-								}
-
-								// Get the <span> element that closes the modal
-								var span = document.getElementsByClassName("close")[0];
-
-								// When the user clicks on <span> (x), close the modal
-								span.onclick = function() {
-								  modal.style.display = "none";
-								}
-							</script>
+							<a href="#portfolioModal7" class="portfolio-link" data-toggle="modal">
+								<div class="caption">
+									<div class="caption-content">
+										<i class="fa fa-search-plus fa-3x"></i>
+									</div>
+								</div>
+								<img class="centered-img" src="img/portfolio/dashboard.png" width="100%" alt="">
+							</a>
+							
+							<img src="img/portfolio/dashboard.png" style="width: 200px; cursor: pointer;">
 							<div style="font-size: 14px; color: #555; margin-top: 8px;">This dashboard built in PowerApps is used for monitoring current grade data. The data is automatically exported from the LMS and then imported into SharePoint. The data is refreshed once every hour during the workday which updates the graphics in Power BI.</div>
 							<hr>
 							<br />
@@ -737,6 +639,29 @@
             </div>
         </div>
     </div>
+	<div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+                <div class="lr">
+                    <div class="rl">
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <div class="modal-body">
+                            <h2>Grade Dashboard</h2>
+                            <img src="img/portfolio/dashboard.png" class="img-responsive img-centered" alt="">
+                            
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
