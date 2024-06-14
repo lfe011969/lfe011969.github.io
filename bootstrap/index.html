@@ -93,6 +93,17 @@
 		  background-color: rgba(0,0,0,0.8);
 		}
 		
+		.caption {
+		  position: absolute;
+		  bottom: 8px;
+		  left: 16px;
+		  color: white;
+		  background-color: rgba(0, 0, 0, 0.5);
+		  padding: 8px 16px;
+		  border-radius: 4px;
+		  font-size: 16px;
+		}
+		
 	</style>
 
 
@@ -434,14 +445,38 @@
 							<hr>
 							<div class="slider">
 								<div class="slides">
-								  <div class="slide"><img src="img/portfolio/chart1.png" alt="Chart 1"></div>
-								  <div class="slide"><img src="img/portfolio/chart2.png" alt="Chart 2"></div>
-								  <div class="slide"><img src="img/portfolio/chart3.png" alt="Chart 3"></div>
-								  <div class="slide"><img src="img/portfolio/chart4.png" alt="Chart 4"></div>
-								  <div class="slide"><img src="img/portfolio/chart5.png" alt="Chart 5"></div>
-								  <div class="slide"><img src="img/portfolio/chart6.png" alt="Chart 6"></div>
-								  <div class="slide"><img src="img/portfolio/chart7.png" alt="Chart 7"></div>
-								  <div class="slide"><img src="img/portfolio/chart8.png" alt="Chart 8"></div>
+									<div class="slide">
+										<img src="img/portfolio/chart1.png" alt="Chart 1">
+										<div class="caption">This graph shows data on all failing grades from 2018-2022.</div>
+									</div>
+									<div class="slide">
+										<img src="img/portfolio/chart2.png" alt="Chart 2">
+										<div class="caption">This graph shows the count of failing grades by year from 2018-2022.</div>
+									</div>
+									<div class="slide">
+										<img src="img/portfolio/chart3.png" alt="Chart 3">
+										<div class="caption">The graph shows the weighted amount of failing grades from 2018-2022.</div>
+									</div>
+									<div class="slide">
+										<img src="img/portfolio/chart4.png" alt="Chart 4">
+										<div class="caption">The pie chart shows the percentage of failures by course.</div>
+									</div>
+									<div class="slide">
+										<img src="img/portfolio/chart5.png" alt="Chart 5">
+										<div class="caption">This graph shows an interactive pie chart showing the percentage of failing grades by course and year.</div>
+									</div>
+									<div class="slide">
+										<img src="img/portfolio/chart6.png" alt="Chart 6">
+										<div class="caption">This graph shows an interactive pie chart showing the percentage of failing grades by course and year.</div>
+									</div>
+									<div class="slide">
+										<img src="img/portfolio/chart7.png" alt="Chart 7">
+										<div class="caption">This interactive chart shows the average and count of failing grades per year and course for 4th term students.</div>
+									</div>
+									<div class="slide">
+										<img src="img/portfolio/chart8.png" alt="Chart 8">
+										<div class="caption">This interactive chart shows the average and count of failing grades per year and course for 1st term students.</div>
+									</div>
 								</div>
 								<button class="prev" onclick="moveSlide(-1)">&#10094;</button>
 								<button class="next" onclick="moveSlide(1)">&#10095;</button>
