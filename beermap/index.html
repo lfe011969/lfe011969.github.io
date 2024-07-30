@@ -16,7 +16,7 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
         // Initialize the map
-        var map = L.map('map').setView([51.505, -0.09], 13);
+        var map = L.map('map').setView([37.08480504405099, -76.47650230762389], 13);
 
         // Set up the OSM layer
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -25,15 +25,15 @@
         }).addTo(map);
 
         // Add markers
-        var marker1 = L.marker([51.5, -0.09]).addTo(map)
-            .bindPopup('This is marker 1.')
+        var marker1 = L.marker([37.08480504405099, -76.47650230762389]).addTo(map)
+            .bindPopup('Tradition Brewing Company.')
             .openPopup();
 
-        var marker2 = L.marker([51.495, -0.083]).addTo(map)
-            .bindPopup('This is marker 2.');
+        var marker2 = L.marker([37.10003268658566, -76.39407500762324]).addTo(map)
+            .bindPopup('St. George Brewing Company.');
 
-        var marker3 = L.marker([51.49, -0.1]).addTo(map)
-            .bindPopup('This is marker 3.');
+        var marker3 = L.marker([37.09095731029843, -76.470959430926]).addTo(map)
+            .bindPopup('1700 Brewing.');
     </script>
 </body>
 </html>
