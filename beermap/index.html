@@ -1,88 +1,39 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lonnie Elrod Jr.</title>
+    <title>Interactive Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        .header {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 50px 0;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 3em;
-        }
-        .nav {
-            background: #34495e;
-            overflow: hidden;
-        }
-        .nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        .nav a:hover {
-            background: #1abc9c;
-            color: white;
-        }
-        .content {
-            text-align: center;
-            padding: 20px;
-        }
-        .profile-pic {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-        }
-        .skills {
-            display: inline-block;
-            margin: 20px 0;
-        }
-        .skills span {
-            background: #ecf0f1;
-            color: #2c3e50;
-            padding: 5px 10px;
-            margin: 5px;
-            border-radius: 3px;
+        #map {
+            height: 600px;
+            width: 100%;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Lonnie Elrod Jr.</h1>
-    </div>
-    <div class="nav">
-        <a href="#">Home</a>
-        <a href="#">PowerApps</a>
-        <a href="#">Power Automate</a>
-        <a href="#">Power BI</a>
-        <a href="#">SharePoint</a>
-        <a href="#">Integration</a>
-    </div>
-    <div class="content">
-        <img src="path/to/profile-pic.jpg" alt="Profile Picture" class="profile-pic">
-        <h2>Power Platform Developer and Data Analyst</h2>
-        <div class="skills">
-            <span>Power Platform</span>
-            <span>JavaScript</span>
-            <span>CSS</span>
-            <span>HTML</span>
-            <span>VBA</span>
-            <span>MySQL</span>
-            <span>PHP</span>
-        </div>
-        <p>I am a results-driven professional with a track record of solving complex business problems through a combination of custom programming and process improvement initiatives. With a strong foundation in software development and a keen understanding of business operations, I have consistently delivered innovative solutions that streamline workflows, enhance efficiency, and drive bottom-line results. My ability to bridge the gap between technology and business objectives has enabled me to make a significant impact on organizations across diverse industries.</p>
-    </div>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
+        // Set up the OSM layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Add markers
+        var marker1 = L.marker([51.5, -0.09]).addTo(map)
+            .bindPopup('This is marker 1.')
+            .openPopup();
+
+        var marker2 = L.marker([51.495, -0.083]).addTo(map)
+            .bindPopup('This is marker 2.');
+
+        var marker3 = L.marker([51.49, -0.1]).addTo(map)
+            .bindPopup('This is marker 3.');
+    </script>
 </body>
 </html>
