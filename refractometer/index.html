@@ -65,8 +65,8 @@
         var fg = parseFloat(document.getElementById('finalGravity').value);
 
         // Calculate Brix WRI values
-        var ogBrix = (((182.4601 * og -775.6821) * og +1262.7794) * og - 669.5622);
-        var fgBrix = (fg - 1) * 1000 / 4;
+        var ogBrix = (((182.4601 * og - 775.6821) * og + 1262.7794) * og - 669.5622);
+        var fgBrix = (((182.4601 * fg - 775.6821) * fg + 1262.7794) * fg - 669.5622);
 
         // Calculate Wort Correction Factor (using a common formula for illustration)
         var wortCorrectionFactor = 1.04 - (0.02 * fgBrix);
@@ -77,8 +77,8 @@
         // Display results
         var resultsDiv = document.getElementById('results');
         resultsDiv.innerHTML = `
-            <p><strong>Brix WRI (OG):</strong> ${ogBrix.toFixed(2)}</p>
-            <p><strong>Brix WRI (FG):</strong> ${fgBrix.toFixed(2)}</p>
+            <p><strong>Brix WRI (OG):</strong> ${ogBrix.toFixed(1)}</p>
+            <p><strong>Brix WRI (FG):</strong> ${fgBrix.toFixed(1)}</p>
             <p><strong>Wort Correction Factor:</strong> ${wortCorrectionFactor.toFixed(2)}</p>
             <p><strong>ABV:</strong> ${abv.toFixed(2)}%</p>
         `;
