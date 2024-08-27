@@ -3,86 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lonnie Elrod Jr.</title>
+    <title>Brewery Calculations</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 20px;
         }
-        .header {
-            background: #2c3e50;
-            color: white;
-            text-align: center;
-            padding: 50px 0;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 3em;
-        }
-        .nav {
-            background: #34495e;
-            overflow: hidden;
-        }
-        .nav a {
-            float: left;
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-        }
-        .nav a:hover {
-            background: #1abc9c;
-            color: white;
-        }
-        .content {
-            text-align: center;
+        .container {
+            max-width: 600px;
+            margin: auto;
             padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .profile-pic {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 10px 0;
+            box-sizing: border-box;
         }
-        .skills {
-            display: inline-block;
-            margin: 20px 0;
+        button {
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
         }
-        .skills span {
-            background: #ecf0f1;
-            color: #2c3e50;
-            padding: 5px 10px;
-            margin: 5px;
-            border-radius: 3px;
+        button:hover {
+            background-color: #218838;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>Lonnie Elrod Jr.</h1>
-    </div>
-    <div class="nav">
-        <a href="#">Home</a>
-        <a href="#">PowerApps</a>
-        <a href="#">Power Automate</a>
-        <a href="#">Power BI</a>
-        <a href="#">SharePoint</a>
-        <a href="#">Integration</a>
-    </div>
-    <div class="content">
-        <img src="path/to/profile-pic.jpg" alt="Profile Picture" class="profile-pic">
-        <h2>Power Platform Developer and Data Analyst</h2>
-        <div class="skills">
-            <span>Power Platform</span>
-            <span>JavaScript</span>
-            <span>CSS</span>
-            <span>HTML</span>
-            <span>VBA</span>
-            <span>MySQL</span>
-            <span>PHP</span>
-        </div>
-        <p>I am a results-driven professional with a track record of solving complex business problems through a combination of custom programming and process improvement initiatives. With a strong foundation in software development and a keen understanding of business operations, I have consistently delivered innovative solutions that streamline workflows, enhance efficiency, and drive bottom-line results. My ability to bridge the gap between technology and business objectives has enabled me to make a significant impact on organizations across diverse industries.</p>
-    </div>
+
+<div class="container">
+    <h1>Brewery Calculations</h1>
+    <label for="originalGravity">Original Gravity (OG):</label>
+    <input type="number" id="originalGravity" step="0.001" placeholder="Enter original gravity">
+
+    <label for="finalGravity">Final Gravity (FG):</label>
+    <input type="number" id="finalGravity" step="0.001" placeholder="Enter final gravity">
+
+    <button onclick="calculate()">Calculate</button>
+
+    <div class="result" id="results"></div>
+</div>
+
+<script>
+    function calculate() {
+        // Get input values
+        var og = parseFloat(document.getElementById('originalGravity').value);
+        var fg = parseFloat(document.getElementById('finalGravity').value);
+
+        // Calculate Brix WRI values
+        var ogBrix = (og - 1) * 1000 / 4;
+        var fgBrix = (fg - 1) * 1000 / 4;
+
+        // Calculate Wort Correction Factor (using a common formula for illustration)
+        var wortCorrectionFactor = 1.04 - (0.02 * fgBrix);
+
+        // Calculate ABV using a common formula
+        var abv = (ogBrix - fgBrix) * 0.131;
+
+        // Display results
+        var resultsDiv = document.getElementById('results');
+        resultsDiv.innerHTML = `
+            <p><strong>Brix WRI (OG):</strong> ${ogBrix.toFixed(2)}</p>
+            <p><strong>Brix WRI (FG):</strong> ${fgBrix.toFixed(2)}</p>
+            <p><strong>Wort Correction Factor:</strong> ${wortCorrectionFactor.toFixed(2)}</p>
+            <p><strong>ABV:</strong> ${abv.toFixed(2)}%</p>
+        `;
+    }
+</script>
+
 </body>
 </html>
