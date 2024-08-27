@@ -65,7 +65,7 @@
         var fg = parseFloat(document.getElementById('finalGravity').value);
 
         // Calculate Brix WRI values
-        var ogBrix = (og - 1) * 1000 / 4;
+        var ogBrix = (((182.4601 * og -775.6821) * og +1262.7794) * og - 669.5622);
         var fgBrix = (fg - 1) * 1000 / 4;
 
         // Calculate Wort Correction Factor (using a common formula for illustration)
