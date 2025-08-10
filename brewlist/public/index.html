@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Local Beer Board</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root { --fg:#111; --muted:#666; --bg:#fafafa; --card:#fff; --br:12px; }
+    body { font-family: system-ui, Arial, sans-serif; margin:0; background:var(--bg); color:var(--fg); }
+    header { padding:24px; background:#fff; border-bottom:1px solid #eee; position:sticky; top:0; }
+    .wrap { max-width:900px; margin:0 auto; padding:24px; }
+    .card { background:var(--card); border:1px solid #eee; border-radius:var(--br); padding:20px; box-shadow:0 2px 6px rgba(0,0,0,.04); }
+    h1 { margin:0 0 8px; font-size:26px; }
+    p.muted { color:var(--muted); margin:0 0 16px; }
+    input[type="search"] { width:100%; padding:12px 14px; border:1px solid #ddd; border-radius:10px; font-size:16px; }
+    ul { list-style:none; padding:0; margin:16px 0 0; }
+    li { padding:10px 12px; border-bottom:1px dashed #eee; display:flex; align-items:baseline; gap:10px; }
+    .badge { font-size:12px; background:#efefef; padding:2px 8px; border-radius:999px; color:#444; }
+    .empty { color:var(--muted); padding:16px 0; }
+    footer { text-align:center; color:#999; padding:32px 16px; }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Local Beer Board</h1>
+      <p class="muted">Auto-scraped list of beers on tap (starting with Billsburg). Updates every few minutes.</p>
+      <input id="q" type="search" placeholder="Filter beers… e.g. IPA, lager, stout" />
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="card">
+      <div id="status" class="muted">Loading…</div>
+      <ul id="list" hidden></ul>
+      <div id="empty" class="empty" hidden>No beers match your filter.</div>
+    </div>
+  </main>
+
+  <footer>Be polite to brewery sites—cache results and don’t hammer their servers.</footer>
+
+  <script>
+    const list = document.getElementById('list');
+    const status = document.getElementById('status');
+    const empty = document.getElementById('empty');
+    const q = document.getElementById('q');
+
+    let beers = [];
+
+    async function load() {
+      try {
+        const res = await fetch('/api/beers');
+        const data = await res.json();
+        beers = (data.beers || []).map(name => ({ name, brewery: data.brewery || 'Unknown' }));
+        status.textContent = `${beers.length} beers found from Billsburg Brewery`;
+        render();
+      } catch (e) {
+        status.textContent = 'Failed to load beers.';
+        console.error(e);
+      }
+    }
+
+    function render() {
+      const term = q.value.trim().toLowerCase();
+      const filtered = term ? beers.filter(b => b.name.toLowerCase().includes(term)) : beers;
+
+      list.innerHTML = "";
+      filtered.forEach(b => {
+        const li = document.createElement('li');
+        const name = document.createElement('div');
+        name.textContent = b.name;
+        const badge = document.createElement('span');
+        badge.className = 'badge';
+        badge.textContent = b.brewery;
+        li.append(badge, name);
+        list.appendChild(li);
+      });
+
+      list.hidden = filtered.length === 0;
+      empty.hidden = filtered.length !== 0;
+    }
+
+    q.addEventListener('input', render);
+    load();
+  </script>
+</body>
+</html>
