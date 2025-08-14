@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -24,7 +24,7 @@
   <header>
     <div class="wrap">
       <h1>Local Beer Board</h1>
-      <p class="muted">Auto-scraped list of beers on tap (starting with Billsburg). Updates every few minutes.</p>
+      <p class="muted">Auto-scraped list of beers on tap (Billsburg to start).</p>
       <input id="q" type="search" placeholder="Filter beers… e.g. IPA, lager, stout" />
     </div>
   </header>
@@ -37,21 +37,20 @@
     </div>
   </main>
 
-  <footer>Be polite to brewery sites—cache results and don’t hammer their servers.</footer>
+  <footer>Be polite to brewery sites—cache and don’t hammer servers.</footer>
 
   <script>
     const list = document.getElementById('list');
     const status = document.getElementById('status');
     const empty = document.getElementById('empty');
     const q = document.getElementById('q');
-
     let beers = [];
 
     async function load() {
       try {
         const res = await fetch('/api/beers');
         const data = await res.json();
-        beers = (data.beers || []).map(name => ({ name, brewery: data.brewery || 'Unknown' }));
+        beers = (data.beers || []).map(name => ({ name, brewery: data.brewery || 'Billsburg Brewery' }));
         status.textContent = `${beers.length} beers found from Billsburg Brewery`;
         render();
       } catch (e) {

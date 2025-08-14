@@ -1,0 +1,10 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+# nice clean API path
+[[redirects]]
+  from = "/api/beers"
+  to = "/.netlify/functions/beers"
+  status = 200
+  force = true
